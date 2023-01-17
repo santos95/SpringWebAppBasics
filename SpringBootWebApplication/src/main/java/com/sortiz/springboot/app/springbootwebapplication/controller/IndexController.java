@@ -61,6 +61,7 @@ public class IndexController {
         //instead of model we can use ModelMap o bien un map de java.util
         @GetMapping(value = "/modelview")
         public ModelAndView modelviewTest(ModelAndView mv) {
+
             mv.addObject("titulo", "model and view test");
             mv.addObject("name", "hello again, Santos");
             mv.setViewName("modelview");
