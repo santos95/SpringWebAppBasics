@@ -19,7 +19,7 @@ public class IndexController {
     //clase controller contiene metodos - handler - gestionan peticiones http de usuario
     //ejemplo cargar formulario, cargar datos - listados - queries - guardar, insertar, eliminar
     //cada handler representa una pagina web que realiza algo y trabaja con datos de la applicaciones
-    //datos se muestran en una vista - en este caso timlift
+    //datos se muestran en una vista - en este caso thymeleaf
     //manejan las peticiones del usuario - mostrar una pagina con datos solicitados por el usuario
 
     //metodo que son string como retorno - vista que va a cargar

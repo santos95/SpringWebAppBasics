@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlnm:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<ul>
+  <li>
+    <a th:href="@{/params/string(name='Santos')}">/params/string?name=Santos</a>
+  </li>
+  <li>
+    <a th:href="@{/params/mixparams(name='Alberto', age=27)}">/params/mixparams?name=Santos&age=27</a>
+  </li>
+  <li>
+    <a th:href="@{/params/paramsrequest(name='Peter', age=28)}">/params/paramsrequest?name=Peter&age=28</a>
+  </li>
+</ul>
+</body>
+</html>
