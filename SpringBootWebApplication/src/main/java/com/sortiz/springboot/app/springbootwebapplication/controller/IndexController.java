@@ -1,5 +1,6 @@
 package com.sortiz.springboot.app.springbootwebapplication.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import java.util.Map;
 //en springs se utilizan las anotaciones o decoradores - para controllers @Controller
 //para importar puede utilizar el comando ctrl + space
 @Controller
+@RequestMapping("/app")
 public class IndexController {
 
     //clase controller contiene metodos - handler - gestionan peticiones http de usuario
@@ -44,17 +46,25 @@ public class IndexController {
         //@RequestMapping(value = "/index", method = RequestMethod.GET)
         //puede estar mapeado a varias rutas distintas
         //@GetMapping(value = "/index")
+
+    //using @Value to inject values from the properties
+        @Value("${indexcontroller.index}")
+        private String index;
+        @Value("${indexcontroller.test}")
+        private String test;
+        @Value("${indexcontroller.modelview}")
+        private String modelview;
         @GetMapping({"/index", "/", "/home"})
         public String index(Model model){
             model.addAttribute("titulo", "Hello, World, from Spring");
-            model.addAttribute("name", "Hello Santos!");
+            model.addAttribute("name", index);
             return "index";
         }
 
         @GetMapping(value = "/test")
         public String test(Map<String, Object> map){
             map.put("title", "test");
-            map.put("name", "Hello Test, Santos");
+            map.put("name", test);
             return "test";
         }
 
@@ -63,7 +73,7 @@ public class IndexController {
         public ModelAndView modelviewTest(ModelAndView mv) {
 
             mv.addObject("titulo", "model and view test");
-            mv.addObject("name", "hello again, Santos");
+            mv.addObject("name", modelview);
             mv.setViewName("modelview");
             return mv;
         }
